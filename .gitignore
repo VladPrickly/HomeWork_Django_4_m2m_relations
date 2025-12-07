@@ -1,3 +1,3 @@
-.venv/
-.idea/
-website/settings_local.py
+/.venv/
+/.idea/
+/website/settings_local.py
