@@ -4,7 +4,6 @@ class Tag(models.Model):
 
     name = models.CharField(max_length=50, verbose_name='Тег')
 
-
     class Meta:
         verbose_name = 'Тематика'
         verbose_name_plural = 'Тематики'
@@ -19,12 +18,7 @@ class Article(models.Model):
     text = models.TextField(verbose_name='Текст')
     published_at = models.DateTimeField(verbose_name='Дата публикации')
     image = models.ImageField(null=True, blank=True, verbose_name='Изображение',)
-    tags = models.ManyToManyField(
-        Tag,
-        through='ArticleScope',
-        verbose_name='Тематики статьи',
-        related_name='articles'
-    )
+    scope = models.ManyToManyField(Tag, through='ArticleScope', verbose_name='Тематики статьи', related_name='articles')
 
     class Meta:
         verbose_name = 'Статья'
